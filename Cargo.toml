@@ -1,0 +1,20 @@
+[package]
+name = "tilbuinn"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# NOTE: disable dynamic linknig on production build
+bevy = { version = "0.11.2", features = ["dynamic_linking"] }
+bevy_rapier2d = "0.22.0"
+rand = "0.8.5"
+
+# Enable debug optimization
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies
+[profile.dev.package."*"]
+opt-level = 3
